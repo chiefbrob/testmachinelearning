@@ -3,7 +3,7 @@
 - The `src` folder provides a generic implementation of a python API.
 
 ```
-app.py        Your flask / FastAPI / Django app.
+app.py        Your flask app.
 engine.py     Main logic of the problem you want to solve.
 utils.py      All utility functions required.
 config.py     Configurable parameters or re-usable global variables.
@@ -14,9 +14,22 @@ predict.py    Predicting using the models (for ML projects)
 ```
 
 - It is important to include `__init__.py` folder otherwise the package will not be able to import
-functions / classes.
+  functions / classes.
 
 - In the `__init__.py` folder import stuff as you need. E.g. `from project.src.app import *`
 
 - Use imports from `project` try to avoid relative imports. This is a better practice.
 
+## Flask App
+
+```bash
+python3 -m venv testml
+cd testml
+source bin/activate
+
+pip install flask
+python -c "import flask; print(flask.__version__)"
+export FLASK_APP=project.src.app
+export FLASK_ENV=development
+flask run -p 8080
+```
